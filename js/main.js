@@ -32,13 +32,62 @@ const sendData = () => {
         "Agradeciendo tu preferencia, nos mantenemos actualizados y enfocados en atenderte como mereces",
       );
       form.reset();
+      getData();
     })
     .catch((error) => {
       alert("Hemos experimentado un error. ¡Vuelve pronto!");
     });
 };
+
+let getData = async () => {
+  try {
+    const response = await fetch(databaseURL);
+
+    if (!response.ok) {
+      alert("Hemos experimentado un error. ¡Vuelve pronto!");
+    }
+
+    const data = await response.json();
+
+    if (data != null) {
+      let countSubscribers = new Map();
+
+      if (Object.keys(data).length > 0) {
+        for (let key in data) {
+          let { email, saved } = data[key];
+
+          let date = saved.split(",")[0];
+
+          let count = countSubscribers.get(date) || 0;
+          countSubscribers.set(date, count + 1);
+        }
+      }
+
+      if (countSubscribers.size > 0) {
+        const subscribers = document.getElementById("subscribers");
+        subscribers.innerHTML = "";
+
+        let i = 1;
+        for (let [date, count] of countSubscribers) {
+          let rowTemplate = `
+                         <tr>
+                             <th scope="row">${i}</th>
+                             <td>${date}</td>
+                             <td>${count}</td>
+                         </tr>`;
+          subscribers.innerHTML += rowTemplate;
+          i++;
+        }
+      }
+    }
+  } catch (error) {
+    alert("Hemos experimentado un error. ¡Vuelve pronto!");
+  }
+};
 let ready = () => {
   console.log("DOM está listo");
+
+  getData();
 };
 
 let loaded = () => {
