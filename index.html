@@ -32,6 +32,7 @@
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Marcellus&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/main.css" />
   </head>
 
   <body class="homepage">
@@ -933,10 +934,7 @@
                     <h5 class="text-uppercase fs-5 mt-3">
                       <a href="index.html">Bisagar para soldar</a>
                     </h5>
-                    <a
-                      href="#"
-                      class="text-decoration-none"
-                      data-after="Add to cart"
+                    <a href="#" class="text-decoration-none"
                       ><span>$3.45</span></a
                     >
                   </div>
@@ -1066,7 +1064,18 @@
                 placeholder="Correo electrónico"
                 class="form-control form-control-lg"
               />
-              <input type="" />
+              <div class="select-section">
+                <label for="motivation"
+                  >Seleccione el tipo de correo que desea</label
+                >
+                <div class="custom-select">
+                  <select name="motivation">
+                    <option value="new products">Nuevos productos</option>
+                    <option value="discounts">Ofertas</option>
+                    <option value="jobs">Puestos de trabajo</option>
+                  </select>
+                </div>
+              </div>
               <button class="btn btn-dark btn-lg text-uppercase w-100">
                 Suscribirse
               </button>

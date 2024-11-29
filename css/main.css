@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+body {
+  font-family: "Roboto";
+}
+
+#lacumbre {
+  color: #f8af3e;
+}
+
+.select-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.custom-select select {
+  appearance: none;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
